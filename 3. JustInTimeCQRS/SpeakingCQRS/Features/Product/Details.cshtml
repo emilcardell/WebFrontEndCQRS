@@ -1,0 +1,12 @@
+﻿@model SpeakingCQRS.CQRS.Product
+
+@if (Model != null)
+{
+<h2>Details of @Model.Name</h2>
+    <div>Id: @Model.Id</div>
+}
+else
+{
+    <h2>No product could be found</h2>
+}
+

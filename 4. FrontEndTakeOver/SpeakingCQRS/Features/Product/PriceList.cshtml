@@ -1,0 +1,19 @@
+﻿@model SpeakingCQRS.Features.Product.PriceListModel
+
+<h2>Price list</h2>
+<ul id="priceList">
+@foreach (var product in Model.Products)
+{
+    <li>
+        <label>@product.Name</label>
+        <input type="text" value="@product.Price"/>
+        <input type="hidden" class="id" value="@product.Id"/>
+    </li>
+}
+</ul>
+
+<div class="messageWindow">
+    <div>Commands in Que</div>
+    <ul id="commandsInQueue">
+    </ul>
+</div>

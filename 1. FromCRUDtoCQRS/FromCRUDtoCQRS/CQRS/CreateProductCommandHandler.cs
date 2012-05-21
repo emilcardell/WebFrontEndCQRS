@@ -25,7 +25,7 @@ namespace FromCRUDtoCQRS.CQRS
         public void PublishWithProjectionDelay(CreateProduct createProduct)
         {
             EventRepo.Add(createProduct.CommandId, createProduct);
-            ThreadPool.QueueUserWorkItem(x => PublishToProjection(createProduct));
+            ThreadPool.QueueUserWorkItem(x => PublishToProjectionWithDelay(createProduct));
         }
 
         public void PublishToProjectionWithDelay(CreateProduct createProduct)

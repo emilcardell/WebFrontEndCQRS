@@ -1,0 +1,14 @@
+﻿@model SpeakingCQRS.CQRS.CreateProductCommand
+
+@this.Raw(this.FormFor(Model).ToString())
+
+<h2>Create Product</h2>
+
+@this.Raw(this.LabelFor(x => x.Name).ToString())
+@this.Raw(this.InputFor(x => x.Name).ToString())
+<input type="submit" value="Create" class="submitAjaxPost"/>
+
+@this.Raw(this.EndForm().ToString())
+
+
+<div class="modalMessageWindow">Your request is beeing processed. <br />You will be taken to the detail in a moment.</div>

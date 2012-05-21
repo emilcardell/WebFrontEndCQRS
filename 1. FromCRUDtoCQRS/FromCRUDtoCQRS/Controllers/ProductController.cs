@@ -15,13 +15,19 @@ namespace FromCRUDtoCQRS.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
-            new ProductRepo().CreateProduct(product);
-            return RedirectToAction("Details", new { Id = product.Id });
+            product.Id = new Random().Next(1000);
+            var createProductCommand = new CreateProduct();
+            createProductCommand.CommandId = Guid.NewGuid();
+            createProductCommand.Name = product.Name;
+            createProductCommand.ProductId = product.Id;
+            new CreateProductCommandHandler().PublishWithProjectionDelay(createProductCommand);
+
+            return RedirectToAction("Details", new {Id = product.Id});
         }
 
         public ActionResult Details(int id)
         {
-            return View(new ProductRepo().GetProduct(id));
+            return View(new ProductProjections().GetProduct(id));
         } 
     }
 }
@@ -36,6 +42,7 @@ namespace FromCRUDtoCQRS.Controllers
             createProductCommand.Name = product.Name;
             createProductCommand.ProductId = product.Id;
             new CreateProductCommandHandler().Publish(createProductCommand);
+ * return RedirectToAction("Details", new {Id = product.Id});
  * Details
              return View(new ProductProjections().GetProduct(id));
  */
