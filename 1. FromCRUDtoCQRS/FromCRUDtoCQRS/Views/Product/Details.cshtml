@@ -5,6 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details of @Model.Name</h2>
-Id: @Model.Id
+@if(Model != null)
+{
+    <h2>Details of @Model.Name</h2>
+    <div>Id: @Model.Id</div>    
+}
+else
+{
+<h2>No product could be found.</h2>
+}
 

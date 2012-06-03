@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    alert('document ready')
-
+    
     $('.submitAjaxPost').click(function (event) {
 
         var actionUrl, formToPost, submitButton;
@@ -22,9 +21,7 @@ $(document).ready(function () {
                     $.get(dataTo.exists, function (existsData) {
                         if (existsData.success) {
                             location.href = data.message;
-        
                         }
-
                     });
                 }, 500, data);
 

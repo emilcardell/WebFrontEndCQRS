@@ -17,6 +17,7 @@ namespace SpeakingCQRS.Features.Product
             var continuation = AjaxContinuation.Successful();
             continuation.Message = "/Product/Details/?Id=" + createProductCommand.ProductId;
             continuation["exists"] = "/Product/Exists/?Id=" + createProductCommand.ProductId;
+            continuation["update"] = "/Product/Update/?Id=" + createProductCommand.ProductId;
             
             return continuation;
         }

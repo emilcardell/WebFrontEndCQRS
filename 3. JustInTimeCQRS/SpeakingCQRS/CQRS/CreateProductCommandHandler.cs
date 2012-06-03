@@ -16,7 +16,7 @@ namespace SpeakingCQRS.CQRS
 
         public void PublishToProjection(CreateProductCommand createProductCommand)
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             var product = new Product();
             product.Id = createProductCommand.ProductId;
             product.Name = createProductCommand.Name;

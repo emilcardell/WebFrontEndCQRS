@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    alert('document ready')
 
     $('.submitAjaxPost').click(function (event) {
 
@@ -9,8 +8,6 @@ $(document).ready(function () {
         $(this).attr("disabled", "true");
         formToPost = $(this).parent('form');
         actionUrl = formToPost.attr('action');
-
-        alert(actionUrl);
 
         $.post(actionUrl, formToPost.serialize(), function (data) {
            
